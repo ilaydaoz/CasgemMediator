@@ -1,6 +1,8 @@
 ﻿using CasgemMediator.Dal;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Reflection;
 
 namespace CasgemMediator
 {
@@ -11,10 +13,9 @@ namespace CasgemMediator
             services.AddDbContext<Context>(x =>
             {
                 x.UseNpgsql(configuration.GetConnectionString("Context"));
-              
             });
             services.TryAddScoped<DbContext, Context>();
-           
         }
+       
     }
 }
