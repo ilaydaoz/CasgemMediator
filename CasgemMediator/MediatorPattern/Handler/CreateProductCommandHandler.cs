@@ -8,14 +8,20 @@ namespace CasgemMediator.MediatorPattern.Handler
     {
         private readonly Context _context;
 
+        public CreateProductCommandHandler(Context context)
+        {
+            _context = context;
+        }
+
         public async Task Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             _context.Products.Add(new Product
             {
                 Name = request.Name,
-                Stock = request.Stock,  
+                Stock = request.Stock,
                 Brand = "Bilinmiyor",
-                Price = 0
+                Price = 0,
+                Category = "Bilinmiyor"
             });
             await _context.SaveChangesAsync();
         }
