@@ -1,9 +1,6 @@
-﻿using CasgemMediator.MediatorPattern.Result;
-using MediatR;
-
-namespace CasgemMediator.MediatorPattern.Queries
+﻿namespace CasgemMediator.MediatorPattern.Result
 {
-    public class GetProductQuery : IRequest<List<GetProductQueryResult>>
+    public class GetProductUpdateByIdQueryResult
     {
         public int ProductId { get; set; }
         public string Name { get; set; }
